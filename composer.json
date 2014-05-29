@@ -1,0 +1,14 @@
+{
+    "name": "go1/gridster",
+    "type": "library",
+    "require": {
+        "beelab/bowerphp": "~",
+        "symfony/serializer": "2.6.~"
+    },
+    "version": "1.0.0",
+    "autoload": {
+        "psr-0" : {
+            "GO1\\Gridster" : "lib/"
+        }
+    }
+}
