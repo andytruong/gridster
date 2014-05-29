@@ -2,7 +2,7 @@
     "name": "go1/gridster",
     "type": "library",
     "require": {
-        "symfony/serializer": "~2.6"
+        "symfony/serializer": "~2.4"
     },
     "version": "1.0.0",
     "autoload": {
