@@ -1,10 +1,15 @@
 <?php
 
 namespace GO1\Gridster\Source;
-use GO1\Gridster\Configuration\ConfigurationInterface;
 
 interface SourceInterface{
+    /**
+     * @return int
+     */
+    function getId();
+
+    /**
+     * @return string
+     */
     function getType();
-    function getConfiguration();
-    function setConfiguration(ConfigurationInterface $configuration);
 }

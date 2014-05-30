@@ -3,54 +3,33 @@
 namespace GO1\Gridster;
 
 use GO1\Gridster\Block\BlockParserInterface;
-use GO1\Gridster\Configuration\ConfigurationParser;
-use GO1\Gridster\GridMaster\GridMasterInterface;
+use GO1\Gridster\Grid\GridInterface;
 use GO1\Gridster\Block\BlockInterface;
-use GO1\Gridster\Output\OutputInterface;
+use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
+use Symfony\Component\Serializer\Serializer;
 
-class Gridster implements GridsterInterface{
+class Gridster{
+    protected $normalizers;
+    protected $encoders;
+    protected $serializer;
 
-    protected $blocks = array();
-    protected $outputClass;
-    protected $blockParser;
-
-    function __construct(BlockParserInterface $blockParser, OutputInterface $outputClass){
-        $this->outputClass = $outputClass;
-        $this->blockParser = $blockParser;
-    }
-
-
-    function outputGridster(GridMasterInterface $gridMaster)
-    {
-        //Get the configuration
-        $output = new \stdClass();
-        $output->id = $gridMaster->getId();
-        $output->title = $gridMaster->getTitle();
-
-        //Configuration
-        $output->configuration = $gridMaster->getConfiguration();
-
-        //Get the children of gridMasterInterface
-        $blocks = $gridMaster->getBlocks();
-
-        if(!empty($blocks)){
-            foreach($blocks as $block){
-                if(!$block instanceof BlockInterface){
-                    throw new \Exception("Block needs to implement BlockInterface");
-                }
-                $output->blocks[] = $this->blockParser->parse($block);
-            }
+    function __construct($normalizers, $encoders){
+        if(!is_array($normalizers)){
+            $this->normalizers = array($normalizers);
+        }else{
+            $this->normalizers = $normalizers;
         }
 
-        //Type of output
-        return $this->outputClass->output($output);
+        if(!is_array($encoders)){
+            $this->encoders = array($encoders);
+        }else{
+            $this->encoders = $encoders;
+        }
     }
 
-    function getAttributes(){
-        return $this->attributes;
-    }
-
-    function getBlocks(){
-        return $this->blocks;
+    function outputGridster(GridInterface $grid, $format = 'json')
+    {
+        $this->serializer = new Serializer($this->normalizers, $this->encoders);
+        return $this->serializer->serialize($grid,$format);
     }
 }

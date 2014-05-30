@@ -6,11 +6,36 @@ use GO1\Gridster\Configuration\ConfigurationInterface;
 use GO1\Gridster\Source\SourceInterface;
 
 interface BlockInterface{
+    /**
+     * @return int
+     */
     function getId();
+
+    /**
+     * @return string
+     */
     function getType();
+
+    /**
+     * @return string
+     */
     function getTitle();
+
+    /**
+     * @return SourceInterface
+     */
     function getSource();
-    function setSource(SourceInterface $source);
-    function getConfiguration();
-    function setConfiguration(ConfigurationInterface $config);
+
+    /**
+     * Options will specify the options parameter in the json
+     * @return array()
+     */
+    function getOptions();
+
+    /**
+     * Placeholders
+     * @return array()
+     */
+    function getPlaceholders();
+
 }
