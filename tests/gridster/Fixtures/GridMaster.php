@@ -2,8 +2,10 @@
 
 namespace GO1\Gridster\Tests\Fixtures;
 
-use GO1\Gridster\Block\WidgetInterface;
+use GO1\Gridster\Widget\WidgetInterface;
 use GO1\Gridster\GridMaster\GridMasterInterface;
+use GO1\Gridster\GridMaster\GridMasterWidgetInterface;
+use GO1\Gridster\GridMaster\Helper\RenderInterface;
 
 class GridMaster implements GridMasterInterface
 {
@@ -35,7 +37,7 @@ class GridMaster implements GridMasterInterface
     }
 
     /**
-     * @return array(BlockInterface)
+     * @return <WidgetInterface>
      */
     function getWidgets()
     {
@@ -43,22 +45,22 @@ class GridMaster implements GridMasterInterface
     }
 
     /**
-     * Options will specify the options parameter in the json
-     * @return array()
+     * Options will specify the options parameter in the json.
+     *
+     * @return array
      */
     function getOptions()
     {
         return $this->options;
     }
 
-    function addBlock(WidgetInterface $block)
+    function addBlock(WidgetInterface $widget)
     {
-        $this->widgets[] = $block;
+        $this->widgets[] = $widget;
     }
 
-    public function addWidget(\GO1\Gridster\GridMaster\GridMasterWidgetInterface $gm_widget)
+    public function addWidget(GridMasterWidgetInterface $gm_widget)
     {
-
     }
 
     public function getRender()
@@ -71,7 +73,7 @@ class GridMaster implements GridMasterInterface
 
     }
 
-    public function removeWidget(\GO1\Gridster\GridMaster\GridMasterWidgetInterface $gm_widget)
+    public function removeWidget(GridMasterWidgetInterface $gm_widget)
     {
 
     }
@@ -81,7 +83,17 @@ class GridMaster implements GridMasterInterface
 
     }
 
-    public function setRender(\GO1\Gridster\GridMaster\Helper\RenderInterface $render)
+    public function setRender(RenderInterface $render)
+    {
+
+    }
+
+    public function getAvailableOptions()
+    {
+
+    }
+
+    public function removeAllWidgets()
     {
 
     }

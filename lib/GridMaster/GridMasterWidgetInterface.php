@@ -2,7 +2,7 @@
 
 namespace GO1\Gridster\GridMaster;
 
-use GO1\Gridster\Block\WidgetInterface;
+use GO1\Gridster\Widget\WidgetInterface;
 
 interface GridMasterWidgetInterface
 {
@@ -16,7 +16,7 @@ interface GridMasterWidgetInterface
 
     /**
      * Getter for widget property.
-     * 
+     *
      * @return WidgetInterface
      */
     public function getWidget();

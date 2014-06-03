@@ -1,8 +1,8 @@
 <?php
 
-namespace GO1\Gridster\Block;
+namespace GO1\Gridster\Widget;
 
-use GO1\Gridster\Source\WidgetTypeInterface;
+use GO1\Gridster\Widget\WidgetTypeInterface;
 
 interface WidgetInterface
 {

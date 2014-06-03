@@ -5,9 +5,6 @@ namespace GO1\Gridster\Tests;
 use GO1\Gridster\GridMaster\GridMasterInterface;
 use GO1\Gridster\Gridster;
 use GO1\Gridster\Normalizer\GridNormalizer;
-use GO1\Gridster\Tests\BlockEntity;
-use GO1\Gridster\Tests\GridEntity;
-use GO1\Gridster\Tests\SourceEntity;
 use Symfony\Component\Serializer\Encoder\JsonEncoder;
 use Symfony\Component\Serializer\Encoder\XmlEncoder;
 

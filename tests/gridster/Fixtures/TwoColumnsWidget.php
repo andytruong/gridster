@@ -2,7 +2,7 @@
 
 namespace GO1\Gridster\Tests\Fixtures;
 
-use GO1\Gridster\Block\WidgetInterface;
+use GO1\Gridster\Widget\WidgetInterface;
 use GO1\Gridster\Source\WidgetTypeInterface;
 
 class TwoColumnsWidget implements WidgetInterface
@@ -45,7 +45,7 @@ class TwoColumnsWidget implements WidgetInterface
 
     /**
      * Options will specify the options parameter in the json.
-     * 
+     *
      * @return array()
      */
     function getOptions()

@@ -2,10 +2,7 @@
 
 namespace GO1\Gridster;
 
-use GO1\Gridster\Block\BlockParserInterface;
 use GO1\Gridster\GridMaster\GridMasterInterface;
-use GO1\Gridster\Block\WidgetInterface;
-use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 use Symfony\Component\Serializer\Serializer;
 
 class Gridster
