@@ -12,31 +12,31 @@ interface WidgetInterface
      *
      * @return string
      */
-    function getId();
+    public function getId();
 
     /**
      * @return WidgetTypeInterface
      */
-    function getType();
+    public function getType();
 
     /**
      * Generate admin label for widget.
      *
      * @return string
      */
-    function getAdminLabel();
+    public function getAdminLabel();
 
     /**
      * Options will specify the options parameter in the json.
      *
      * @return array
      */
-    function getOptions();
+    public function getOptions();
 
     /**
      * @todo What is "Placeholders"?
      *
      * @return array
      */
-    function getPlaceholders();
+    public function getPlaceholders();
 }

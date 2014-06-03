@@ -2,7 +2,7 @@
 
 namespace GO1\Gridster\GridMaster;
 
-use GO1\Gridster\Block\WidgetInterface;
+use GO1\Gridster\GridMaster\Helper\RenderInterface;
 
 interface GridMasterInterface
 {
@@ -10,21 +10,73 @@ interface GridMasterInterface
     /**
      * @return int
      */
-    function getId();
+    public function getId();
 
     /**
      * @return string
      */
-    function getTitle();
+    public function getTitle();
 
     /**
-     * @return array(BlockInterface)
+     * @return <GridMasterWidget>
      */
-    function getWidgets();
+    public function getWidgets();
 
     /**
-     * Options will specify the options parameter in the json
-     * @return array()
+     * Get a widget added to grid-master.
+     *
+     * @param string $id
+     * @return GridMasterWidgetInterface
      */
-    function getOptions();
+    public function getWidget(string $id);
+
+    /**
+     * Add a widget interface to grid-master.
+     */
+    public function addWidget(GridMasterWidgetInterface $gm_widget);
+
+    /**
+     * Remove all widgets.
+     */
+    public function removeAllWidgets();
+
+    /**
+     * Remove a widget from grid-master
+     *
+     * @param GridMasterWidgetInterface $gm_widget
+     */
+    public function removeWidget(GridMasterWidgetInterface $gm_widget);
+
+    /**
+     * Remove a widget from grid-master by ID.
+     */
+    public function removeWidgetById(string $gm_widget_id);
+
+    /**
+     * Setter for render property.
+     *
+     * @param RenderInterface $render
+     */
+    public function setRender(RenderInterface $render);
+
+    /**
+     * Getter for render property.
+     *
+     * @return RenderInterface
+     */
+    public function getRender();
+
+    /**
+     * Return list of available options: ['widget_selector', 'widget_margins', …]
+     *
+     * @return <string>
+     */
+    public function getAvailableOptions();
+
+    /**
+     * Options will specify the options parameter in the json.
+     *
+     * @return array
+     */
+    public function getOptions();
 }

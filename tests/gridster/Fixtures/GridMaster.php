@@ -56,4 +56,34 @@ class GridMaster implements GridMasterInterface
         $this->widgets[] = $block;
     }
 
+    public function addWidget(\GO1\Gridster\GridMaster\GridMasterWidgetInterface $gm_widget)
+    {
+
+    }
+
+    public function getRender()
+    {
+
+    }
+
+    public function getWidget(string $id)
+    {
+
+    }
+
+    public function removeWidget(\GO1\Gridster\GridMaster\GridMasterWidgetInterface $gm_widget)
+    {
+
+    }
+
+    public function removeWidgetById(string $gm_widget_id)
+    {
+
+    }
+
+    public function setRender(\GO1\Gridster\GridMaster\Helper\RenderInterface $render)
+    {
+
+    }
+
 }

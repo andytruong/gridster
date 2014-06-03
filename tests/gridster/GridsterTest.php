@@ -21,11 +21,12 @@ class GridsterTest extends \PHPUnit_Framework_TestCase
 
     public function setUp()
     {
-        $source = new SourceEntity(1, 'default');
-        $source2 = new SourceEntity(2, 'default');
-        $block = new BlockEntity(1, 'default', 'Block 1', $source, array('sizeX' => 1, 'sizeY' => 2, 'col' => 1, 'row' => 1));
-        $block2 = new BlockEntity(2, 'default', 'Block 1', $source2, array('sizeX' => 1, 'sizeY' => 2, 'col' => 2, 'row' => 1));
-        $this->grid = new GridEntity(1, 'Test Grid', array());
+        $source = new Fixtures\WidgetType(1, 'default');
+        $source2 = new Fixtures\WidgetType(2, 'default');
+        $block = new Fixtures\Widget(1, 'default', 'Block 1', $source, array('sizeX' => 1, 'sizeY' => 2, 'col' => 1, 'row' => 1));
+        $block2 = new Fixtures\Widget(2, 'default', 'Block 1', $source2, array('sizeX' => 1, 'sizeY' => 2, 'col' => 2, 'row' => 1));
+        $this->grid = new Fixtures\GridMaster(1, 'Test Grid', array());
+        $this->grid->addWidget($gm_widget);
         $this->grid->addBlock($block);
         $this->grid->addBlock($block2);
     }

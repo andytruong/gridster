@@ -27,7 +27,8 @@ class GridNormalizer extends SerializerAwareNormalizer implements NormalizerInte
     {
         foreach ($callbacks as $attribute => $callback) {
             if (!is_callable($callback)) {
-                throw new InvalidArgumentException(sprintf('The given callback for attribute "%s" is not callable.', $attribute));
+                $msg = sprintf('The given callback for attribute "%s" is not callable.', $attribute);
+                throw new InvalidArgumentException($msg);
             }
         }
         $this->callbacks = $callbacks;
@@ -68,7 +69,13 @@ class GridNormalizer extends SerializerAwareNormalizer implements NormalizerInte
      */
     public function supportsNormalization($data, $format = null)
     {
-        return is_object($data) && ($data instanceof GridMasterInterface || $data instanceof WidgetInterface || $data instanceof WidgetTypeInterface);
+        if (is_object($data)) {
+            return ($data instanceof GridMasterInterface)
+                        || ($data instanceof WidgetInterface)
+                        || ($data instanceof WidgetTypeInterface);
+        }
+
+        return false;
     }
 
     /**
@@ -100,7 +107,8 @@ class GridNormalizer extends SerializerAwareNormalizer implements NormalizerInte
                 }
                 if (null !== $attributeValue && !is_scalar($attributeValue)) {
                     if (!$this->serializer instanceof NormalizerInterface) {
-                        throw new \LogicException(sprintf('Cannot normalize attribute "%s" because injected serializer is not a normalizer', $attributeName));
+                        $msg = sprintf('Cannot normalize attribute "%s" because injected serializer is not a normalizer', $attributeName);
+                        throw new \LogicException($msg);
                     }
                     $attributeValue = $this->serializer->normalize($attributeValue, $format);
                 }
@@ -122,10 +130,10 @@ class GridNormalizer extends SerializerAwareNormalizer implements NormalizerInte
     private function isGetMethod(\ReflectionMethod $method)
     {
         return (
-            0 === strpos($method->name, 'get') &&
-            3 < strlen($method->name) &&
-            0 === $method->getNumberOfRequiredParameters()
-            );
+            0 === strpos($method->name, 'get')
+            && 3 < strlen($method->name)
+            && 0 === $method->getNumberOfRequiredParameters()
+        );
     }
 
 }
