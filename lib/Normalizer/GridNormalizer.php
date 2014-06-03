@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * Contains GO1\Gridster\Normalizer\GridNormalizer
+ */
+
 namespace GO1\Gridster\Normalizer;
 
 use GO1\Gridster\Widget\WidgetInterface;
@@ -8,18 +12,37 @@ use GO1\Gridster\Source\WidgetTypeInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 use Symfony\Component\Serializer\Normalizer\SerializerAwareNormalizer;
 
+/**
+ * …
+ */
 class GridNormalizer extends SerializerAwareNormalizer implements NormalizerInterface
 {
 
-    protected $callbacks = array();
-    protected $ignoredAttributes = array();
-    protected $camelizedAttributes = array();
+    /**
+     * Callbacks
+     *
+     * @var array
+     */
+    protected $callbacks = [];
+
+    /**
+     * …
+     *
+     * @var array
+     */
+    protected $ignoredAttributes = [];
+
+    /**
+     * …
+     *
+     * @var array
+     */
+    protected $camelizedAttributes = [];
 
     /**
      * Set normalization callbacks.
      *
      * @param callable[] $callbacks help normalize the result
-     *
      * @throws InvalidArgumentException if a non-callable callback is set
      */
     public function setCallbacks(array $callbacks)
@@ -53,6 +76,11 @@ class GridNormalizer extends SerializerAwareNormalizer implements NormalizerInte
         $this->camelizedAttributes = $camelizedAttributes;
     }
 
+    /**
+     * Check denormalization supporting.
+     * 
+     * @return boolean
+     */
     public function supportsDenormalization()
     {
         return false;

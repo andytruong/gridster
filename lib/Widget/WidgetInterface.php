@@ -1,7 +1,6 @@
 <?php
 
 /**
- * @file
  * Contains GO1\Gridster\Widget\WidgetInterface
  */
 

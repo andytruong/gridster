@@ -1,7 +1,14 @@
 <?php
 
+/**
+ * Contains GO1\Gridster\Widget\WidgetTypeInterface
+ */
+
 namespace GO1\Gridster\Widget;
 
+/**
+ * Defines a common interface for widget type.
+ */
 interface WidgetTypeInterface
 {
 

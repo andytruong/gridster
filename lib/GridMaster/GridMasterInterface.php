@@ -1,7 +1,6 @@
 <?php
 
 /**
- * @file
  * Contains GO1\Gridster\GridMaster\GridMasterInterface
  */
 
@@ -16,16 +15,22 @@ interface GridMasterInterface
 {
 
     /**
+     * Getter for id property.
+     *
      * @return int
      */
     public function getId();
 
     /**
+     * Getter for title property.
+     *
      * @return string
      */
     public function getTitle();
 
     /**
+     * Get all widgets added to grid-master.
+     *
      * @return <GridMasterWidget>
      */
     public function getWidgets();
@@ -40,6 +45,8 @@ interface GridMasterInterface
 
     /**
      * Add a widget interface to grid-master.
+     *
+     * @param GridMasterWidgetInterface $gm_widget
      */
     public function addWidget(GridMasterWidgetInterface $gm_widget);
 
@@ -57,6 +64,8 @@ interface GridMasterInterface
 
     /**
      * Remove a widget from grid-master by ID.
+     *
+     * @param string $gm_widget_id
      */
     public function removeWidgetById(string $gm_widget_id);
 

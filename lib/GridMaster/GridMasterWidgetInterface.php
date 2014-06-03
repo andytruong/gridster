@@ -1,7 +1,6 @@
 <?php
 
 /**
- * @file
  * Contains GO1\Gridster\GridMaster\GridMasterWidgetInterface
  */
 
@@ -45,12 +44,14 @@ interface GridMasterWidgetInterface
 
     /**
      * Setter for col property.
-     * @param init @col
+     *
+     * @param int $col
      */
     public function setCol($col);
 
     /**
      * Getter for col property.
+     *
      * @return int
      */
     public function getCol();
