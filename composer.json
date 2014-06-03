@@ -1,13 +1,12 @@
 {
-    "name": "go1/gridster",
-    "type": "library",
-    "require": {
-        "symfony/serializer": ">=2.0"
-    },
-    "version": "1.0.0",
-    "autoload": {
-        "psr-0" : {
-            "GO1\\Gridster" : "lib/"
-        }
+  "name": "go1/gridster",
+  "type": "library",
+  "require": {
+    "symfony/serializer": ">=2.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "GO1\\Gridster\\": "lib/"
     }
+  }
 }
