@@ -5,17 +5,17 @@ namespace GO1\Gridster\Tests\Fixtures;
 use GO1\Gridster\Block\WidgetInterface;
 use GO1\Gridster\Grid\GridMasterInterface;
 
-class GridMasterEntity implements GridMasterInterface
+class GridMaster implements GridMasterInterface
 {
 
-    protected $id, $title, $blocks, $options;
+    protected $id, $title, $widgets, $options;
 
     public function __construct($id, $title, $options)
     {
         $this->id = $id;
         $this->title = $title;
         $this->options = $options;
-        $this->blocks = array();
+        $this->widgets = array();
     }
 
     /**
@@ -37,9 +37,9 @@ class GridMasterEntity implements GridMasterInterface
     /**
      * @return array(BlockInterface)
      */
-    function getBlocks()
+    function getWidgets()
     {
-        return $this->blocks;
+        return $this->widgets;
     }
 
     /**
@@ -53,7 +53,7 @@ class GridMasterEntity implements GridMasterInterface
 
     function addBlock(WidgetInterface $block)
     {
-        $this->blocks[] = $block;
+        $this->widgets[] = $block;
     }
 
 }

@@ -20,7 +20,7 @@ interface GridMasterInterface
     /**
      * @return array(BlockInterface)
      */
-    function getBlocks();
+    function getWidgets();
 
     /**
      * Options will specify the options parameter in the json

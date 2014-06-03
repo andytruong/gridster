@@ -5,7 +5,7 @@ namespace GO1\Gridster\Tests\Fixtures;
 use GO1\Gridster\Block\WidgetInterface;
 use GO1\Gridster\Source\WidgetTypeInterface;
 
-class WidgetEntity implements WidgetInterface
+class Widget implements WidgetInterface
 {
 
     protected $id, $type, $title, $source, $options;
