@@ -44,8 +44,7 @@ class GridsterTest extends \PHPUnit_Framework_TestCase
         $encoder = new JsonEncoder();
         $gridster = new Gridster(array($normalizer), array($encoder));
         $json = $gridster->outputGridster($this->grid, 'json');
-        var_dump($json);
-        $expected_json = file_get_contents(__DIR__ . "/result.json");
+        $expected_json = file_get_contents(__DIR__ . "/Fixtures/data/result.json");
         $this->assertEquals($expected_json, $json);
     }
 
@@ -58,9 +57,7 @@ class GridsterTest extends \PHPUnit_Framework_TestCase
         $encoder = new XmlEncoder();
         $gridster = new Gridster(array($normalizer), array($encoder));
         $xml = $gridster->outputGridster($this->grid, 'xml');
-        var_dump($xml);
-
-        $expected_xml = file_get_contents(__DIR__ . "/result.xml");
+        $expected_xml = file_get_contents(__DIR__ . "/Fixtures/data/result.xml");
         $this->assertEquals($expected_xml, $xml);
     }
 
@@ -77,8 +74,7 @@ class GridsterTest extends \PHPUnit_Framework_TestCase
         $encoder = new JsonEncoder();
         $gridster = new Gridster(array($normalizer), array($encoder));
         $json = $gridster->outputGridster($this->grid, 'json');
-        var_dump($json);
-        $expected_json = file_get_contents(__DIR__ . "/advanced_result.json");
+        $expected_json = file_get_contents(__DIR__ . "/Fixtures/data/advanced_result.json");
         $this->assertEquals($expected_json, $json);
     }
 

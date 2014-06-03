@@ -1,0 +1,60 @@
+{
+    "id": 1,
+    "title": "Test Grid",
+    "blocks": [{
+            "id": 1,
+            "type": "default",
+            "title": "Block 1",
+            "source": {
+                "id": 1,
+                "type": "default",
+                "title": "Source Title 1",
+                "summary": "Source Summary 1",
+                "image": "http:\/\/adurolms.com\/sites\/adurolms.com\/files\/new-aduro-image.png"
+            },
+            "options": {
+                "sizeX": 1,
+                "sizeY": 2,
+                "col": 1,
+                "row": 1
+            },
+            "placeholders": {
+                "default": ["title", {
+                        "key": "summary",
+                        "render": "paragraph",
+                        "class": "large"
+                    }, {
+                        "key": "image",
+                        "render": "image"
+                    }]
+            }
+        }, {
+            "id": 2,
+            "type": "default",
+            "title": "Block 1",
+            "source": {
+                "id": 2,
+                "type": "default",
+                "title": "Source Title 2",
+                "summary": "Source Summary 2",
+                "image": "http:\/\/adurolms.com\/sites\/adurolms.com\/files\/new-aduro-image.png"
+            },
+            "options": {
+                "sizeX": 1,
+                "sizeY": 2,
+                "col": 2,
+                "row": 1
+            },
+            "placeholders": {
+                "default": ["title", {
+                        "key": "summary",
+                        "render": "paragraph",
+                        "class": "large"
+                    }, {
+                        "key": "image",
+                        "render": "image"
+                    }]
+            }
+        }],
+    "options": []
+}
