@@ -1,11 +1,11 @@
 <?php
 
-namespace GO1\Gridster\Tests;
+namespace GO1\Gridster\Tests\Fixtures;
 
-use GO1\Gridster\Block\BlockInterface;
-use GO1\Gridster\Source\SourceInterface;
+use GO1\Gridster\Block\WidgetInterface;
+use GO1\Gridster\Source\WidgetTypeInterface;
 
-class BlockEntityTwoCol implements BlockInterface
+class WidgetEntity implements WidgetInterface
 {
 
     protected $id, $type, $title, $source, $options;
@@ -44,7 +44,7 @@ class BlockEntityTwoCol implements BlockInterface
     }
 
     /**
-     * @return SourceInterface
+     * @return WidgetTypeInterface
      */
     function getSource()
     {
@@ -60,7 +60,7 @@ class BlockEntityTwoCol implements BlockInterface
         return $this->options;
     }
 
-    function addSource(SourceInterface $source)
+    function addSource(WidgetTypeInterface $source)
     {
         $this->source = $source;
     }
@@ -68,11 +68,8 @@ class BlockEntityTwoCol implements BlockInterface
     function getPlaceholders()
     {
         return array(
-            "leftCol" => array(
-                array('key' => 'image', 'render' => 'image'),
-            ),
-            "rightCol" => array(
-                "title", array('key' => 'summary', 'render' => 'paragraph', 'class' => 'large')
+            'default' => array(
+                'title', array('key' => 'summary', 'render' => 'paragraph', 'class' => 'large'), array('key' => 'image', 'render' => 'image')
             )
         );
     }

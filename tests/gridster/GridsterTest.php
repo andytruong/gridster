@@ -2,7 +2,7 @@
 
 namespace GO1\Gridster\Tests;
 
-use GO1\Gridster\Grid\GridInterface;
+use GO1\Gridster\Grid\GridMasterInterface;
 use GO1\Gridster\Gridster;
 use GO1\Gridster\Normalizer\GridNormalizer;
 use GO1\Gridster\Tests\BlockEntity;
@@ -15,7 +15,7 @@ class GridsterTest extends \PHPUnit_Framework_TestCase
 {
 
     /**
-     * @var GridInterface
+     * @var GridMasterInterface
      */
     protected $grid;
 

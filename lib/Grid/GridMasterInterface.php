@@ -2,9 +2,9 @@
 
 namespace GO1\Gridster\Grid;
 
-use GO1\Gridster\Block\BlockInterface;
+use GO1\Gridster\Block\WidgetInterface;
 
-interface GridInterface
+interface GridMasterInterface
 {
 
     /**

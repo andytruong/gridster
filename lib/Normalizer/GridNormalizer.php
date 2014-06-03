@@ -2,9 +2,9 @@
 
 namespace GO1\Gridster\Normalizer;
 
-use GO1\Gridster\Block\BlockInterface;
-use GO1\Gridster\Grid\GridInterface;
-use GO1\Gridster\Source\SourceInterface;
+use GO1\Gridster\Block\WidgetInterface;
+use GO1\Gridster\Grid\GridMasterInterface;
+use GO1\Gridster\Source\WidgetTypeInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 use Symfony\Component\Serializer\Normalizer\GetSetMethodNormalizer;
 use Symfony\Component\Serializer\Normalizer\SerializerAwareNormalizer;
@@ -68,13 +68,13 @@ class GridNormalizer extends SerializerAwareNormalizer implements NormalizerInte
      */
     public function supportsNormalization($data, $format = null)
     {
-        return is_object($data) && ($data instanceof GridInterface || $data instanceof BlockInterface || $data instanceof SourceInterface);
+        return is_object($data) && ($data instanceof GridMasterInterface || $data instanceof WidgetInterface || $data instanceof WidgetTypeInterface);
     }
 
     /**
      * Normalizes an object into a set of arrays/scalars
      *
-     * @param GridInterface $object object to normalize
+     * @param GridMasterInterface $object object to normalize
      * @param string $format format the normalization result will be encoded as
      * @param array $context Context options for the normalizer
      *

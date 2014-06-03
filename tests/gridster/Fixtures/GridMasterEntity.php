@@ -2,10 +2,10 @@
 
 namespace GO1\Gridster\Tests\Fixtures;
 
-use GO1\Gridster\Block\BlockInterface;
-use GO1\Gridster\Grid\GridInterface;
+use GO1\Gridster\Block\WidgetInterface;
+use GO1\Gridster\Grid\GridMasterInterface;
 
-class GridEntity implements GridInterface
+class GridMasterEntity implements GridMasterInterface
 {
 
     protected $id, $title, $blocks, $options;
@@ -51,7 +51,7 @@ class GridEntity implements GridInterface
         return $this->options;
     }
 
-    function addBlock(BlockInterface $block)
+    function addBlock(WidgetInterface $block)
     {
         $this->blocks[] = $block;
     }

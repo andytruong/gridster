@@ -2,9 +2,9 @@
 
 namespace GO1\Gridster\Tests\Fixtures;
 
-use GO1\Gridster\Source\SourceInterface;
+use GO1\Gridster\Source\WidgetTypeInterface;
 
-class SourceEntity implements SourceInterface
+class WidgetTypeEntity implements WidgetTypeInterface
 {
 
     protected $id;

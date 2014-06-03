@@ -3,8 +3,8 @@
 namespace GO1\Gridster;
 
 use GO1\Gridster\Block\BlockParserInterface;
-use GO1\Gridster\Grid\GridInterface;
-use GO1\Gridster\Block\BlockInterface;
+use GO1\Gridster\Grid\GridMasterInterface;
+use GO1\Gridster\Block\WidgetInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 use Symfony\Component\Serializer\Serializer;
 
@@ -32,7 +32,7 @@ class Gridster
         }
     }
 
-    function outputGridster(GridInterface $grid, $format = 'json')
+    function outputGridster(GridMasterInterface $grid, $format = 'json')
     {
         $this->serializer = new Serializer($this->normalizers, $this->encoders);
         return $this->serializer->serialize($grid, $format);

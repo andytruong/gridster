@@ -3,9 +3,9 @@
 namespace GO1\Gridster\Block;
 
 use GO1\Gridster\Configuration\ConfigurationInterface;
-use GO1\Gridster\Source\SourceInterface;
+use GO1\Gridster\Source\WidgetTypeInterface;
 
-interface BlockInterface
+interface WidgetInterface
 {
 
     /**
@@ -24,7 +24,7 @@ interface BlockInterface
     function getTitle();
 
     /**
-     * @return SourceInterface
+     * @return WidgetTypeInterface
      */
     function getSource();
 
