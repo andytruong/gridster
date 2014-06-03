@@ -2,7 +2,9 @@
 
 namespace GO1\Gridster\Source;
 
-interface SourceInterface{
+interface SourceInterface
+{
+
     /**
      * @return int
      */

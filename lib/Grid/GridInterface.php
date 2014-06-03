@@ -4,26 +4,27 @@ namespace GO1\Gridster\Grid;
 
 use GO1\Gridster\Block\BlockInterface;
 
-interface GridInterface {
+interface GridInterface
+{
 
-  /**
-   * @return int
-   */
-  function getId();
+    /**
+     * @return int
+     */
+    function getId();
 
-  /**
-   * @return string
-   */
-  function getTitle();
+    /**
+     * @return string
+     */
+    function getTitle();
 
-  /**
-   * @return array(BlockInterface)
-   */
-  function getBlocks();
+    /**
+     * @return array(BlockInterface)
+     */
+    function getBlocks();
 
-  /**
-   * Options will specify the options parameter in the json
-   * @return array()
-   */
-  function getOptions();
+    /**
+     * Options will specify the options parameter in the json
+     * @return array()
+     */
+    function getOptions();
 }

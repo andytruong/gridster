@@ -5,11 +5,13 @@ namespace GO1\Gridster\Tests;
 use GO1\Gridster\Block\BlockInterface;
 use GO1\Gridster\Source\SourceInterface;
 
-class BlockEntityTwoCol implements BlockInterface{
+class BlockEntityTwoCol implements BlockInterface
+{
 
     protected $id, $type, $title, $source, $options;
 
-    function __construct($id, $type, $title, $source, $options){
+    function __construct($id, $type, $title, $source, $options)
+    {
         $this->id = $id;
         $this->type = $type;
         $this->title = $title;
@@ -20,28 +22,32 @@ class BlockEntityTwoCol implements BlockInterface{
     /**
      * @return int
      */
-    function getId(){
+    function getId()
+    {
         return $this->id;
     }
 
     /**
      * @return string
      */
-    function getType(){
+    function getType()
+    {
         return $this->type;
     }
 
     /**
      * @return string
      */
-    function getTitle(){
+    function getTitle()
+    {
         return $this->title;
     }
 
     /**
      * @return SourceInterface
      */
-    function getSource(){
+    function getSource()
+    {
         return $this->source;
     }
 
@@ -49,22 +55,26 @@ class BlockEntityTwoCol implements BlockInterface{
      * Options will specify the options parameter in the json
      * @return array()
      */
-    function getOptions(){
+    function getOptions()
+    {
         return $this->options;
     }
 
-    function addSource(SourceInterface $source){
+    function addSource(SourceInterface $source)
+    {
         $this->source = $source;
     }
 
-    function getPlaceholders(){
+    function getPlaceholders()
+    {
         return array(
-            "leftCol"=>array(
-                array('key'=>'image','render'=>'image'),
+            "leftCol" => array(
+                array('key' => 'image', 'render' => 'image'),
             ),
-            "rightCol"=>array(
-                "title",array('key'=>'summary','render'=>'paragraph','class'=>'large')
+            "rightCol" => array(
+                "title", array('key' => 'summary', 'render' => 'paragraph', 'class' => 'large')
             )
         );
     }
+
 }

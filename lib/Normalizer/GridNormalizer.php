@@ -1,6 +1,7 @@
 <?php
 
 namespace GO1\Gridster\Normalizer;
+
 use GO1\Gridster\Block\BlockInterface;
 use GO1\Gridster\Grid\GridInterface;
 use GO1\Gridster\Source\SourceInterface;
@@ -8,12 +9,12 @@ use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 use Symfony\Component\Serializer\Normalizer\GetSetMethodNormalizer;
 use Symfony\Component\Serializer\Normalizer\SerializerAwareNormalizer;
 
-class GridNormalizer extends SerializerAwareNormalizer implements NormalizerInterface{
+class GridNormalizer extends SerializerAwareNormalizer implements NormalizerInterface
+{
 
     protected $callbacks = array();
     protected $ignoredAttributes = array();
     protected $camelizedAttributes = array();
-
 
     /**
      * Set normalization callbacks.
@@ -52,10 +53,10 @@ class GridNormalizer extends SerializerAwareNormalizer implements NormalizerInte
         $this->camelizedAttributes = $camelizedAttributes;
     }
 
-    public function supportsDenormalization(){
+    public function supportsDenormalization()
+    {
         return false;
     }
-
 
     /**
      * Checks whether the given class is supported for normalization by this normalizer
@@ -65,10 +66,10 @@ class GridNormalizer extends SerializerAwareNormalizer implements NormalizerInte
      *
      * @return bool
      */
-    public function supportsNormalization($data, $format = null){
+    public function supportsNormalization($data, $format = null)
+    {
         return is_object($data) && ($data instanceof GridInterface || $data instanceof BlockInterface || $data instanceof SourceInterface);
     }
-
 
     /**
      * Normalizes an object into a set of arrays/scalars
@@ -79,7 +80,8 @@ class GridNormalizer extends SerializerAwareNormalizer implements NormalizerInte
      *
      * @return array|scalar
      */
-    public function normalize($object, $format = null, array $context = array()){
+    public function normalize($object, $format = null, array $context = array())
+    {
         $reflectionObject = new \ReflectionObject($object);
         $reflectionMethods = $reflectionObject->getMethods(\ReflectionMethod::IS_PUBLIC);
 
@@ -123,7 +125,7 @@ class GridNormalizer extends SerializerAwareNormalizer implements NormalizerInte
             0 === strpos($method->name, 'get') &&
             3 < strlen($method->name) &&
             0 === $method->getNumberOfRequiredParameters()
-        );
+            );
     }
 
 }

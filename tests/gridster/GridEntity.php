@@ -5,11 +5,13 @@ namespace GO1\Gridster\Tests;
 use GO1\Gridster\Block\BlockInterface;
 use GO1\Gridster\Grid\GridInterface;
 
-class GridEntity implements GridInterface{
+class GridEntity implements GridInterface
+{
 
     protected $id, $title, $blocks, $options;
 
-    public function __construct($id, $title, $options){
+    public function __construct($id, $title, $options)
+    {
         $this->id = $id;
         $this->title = $title;
         $this->options = $options;
@@ -19,21 +21,24 @@ class GridEntity implements GridInterface{
     /**
      * @return int
      */
-    function getId(){
+    function getId()
+    {
         return $this->id;
     }
 
     /**
      * @return string
      */
-    function getTitle(){
+    function getTitle()
+    {
         return $this->title;
     }
 
     /**
      * @return array(BlockInterface)
      */
-    function getBlocks(){
+    function getBlocks()
+    {
         return $this->blocks;
     }
 
@@ -41,11 +46,14 @@ class GridEntity implements GridInterface{
      * Options will specify the options parameter in the json
      * @return array()
      */
-    function getOptions(){
+    function getOptions()
+    {
         return $this->options;
     }
 
-    function addBlock(BlockInterface $block){
+    function addBlock(BlockInterface $block)
+    {
         $this->blocks[] = $block;
     }
+
 }
