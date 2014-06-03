@@ -1,6 +1,6 @@
 <?php
 
-namespace GO1\Gridster\Tests;
+namespace GO1\Gridster\Tests\Fixtures;
 
 use GO1\Gridster\Block\BlockInterface;
 use GO1\Gridster\Source\SourceInterface;
