@@ -1,6 +1,6 @@
 <?php
 
-namespace GO1\Gridster\Grid;
+namespace GO1\Gridster\GridMaster;
 
 use GO1\Gridster\Block\WidgetInterface;
 

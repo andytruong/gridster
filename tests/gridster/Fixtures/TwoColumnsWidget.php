@@ -20,7 +20,7 @@ class TwoColumnsWidget implements WidgetInterface
     }
 
     /**
-     * @return int
+     * @return string
      */
     function getId()
     {
@@ -30,15 +30,7 @@ class TwoColumnsWidget implements WidgetInterface
     /**
      * @return string
      */
-    function getType()
-    {
-        return $this->type;
-    }
-
-    /**
-     * @return string
-     */
-    function getTitle()
+    function getAdminLabel()
     {
         return $this->title;
     }
@@ -46,13 +38,14 @@ class TwoColumnsWidget implements WidgetInterface
     /**
      * @return WidgetTypeInterface
      */
-    function getSource()
+    function getType()
     {
         return $this->source;
     }
 
     /**
-     * Options will specify the options parameter in the json
+     * Options will specify the options parameter in the json.
+     * 
      * @return array()
      */
     function getOptions()
@@ -68,12 +61,12 @@ class TwoColumnsWidget implements WidgetInterface
     function getPlaceholders()
     {
         return array(
-            "leftCol" => array(
-                array('key' => 'image', 'render' => 'image'),
-            ),
-            "rightCol" => array(
-                "title", array('key' => 'summary', 'render' => 'paragraph', 'class' => 'large')
-            )
+            'leftCol' => [
+                ['key' => 'image', 'render' => 'image'],
+            ],
+            'rightCol' => [
+                "title", ['key' => 'summary', 'render' => 'paragraph', 'class' => 'large']
+            ]
         );
     }
 

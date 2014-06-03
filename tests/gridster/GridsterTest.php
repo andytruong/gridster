@@ -2,7 +2,7 @@
 
 namespace GO1\Gridster\Tests;
 
-use GO1\Gridster\Grid\GridMasterInterface;
+use GO1\Gridster\GridMaster\GridMasterInterface;
 use GO1\Gridster\Gridster;
 use GO1\Gridster\Normalizer\GridNormalizer;
 use GO1\Gridster\Tests\BlockEntity;

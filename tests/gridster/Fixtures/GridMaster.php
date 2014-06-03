@@ -3,7 +3,7 @@
 namespace GO1\Gridster\Tests\Fixtures;
 
 use GO1\Gridster\Block\WidgetInterface;
-use GO1\Gridster\Grid\GridMasterInterface;
+use GO1\Gridster\GridMaster\GridMasterInterface;
 
 class GridMaster implements GridMasterInterface
 {

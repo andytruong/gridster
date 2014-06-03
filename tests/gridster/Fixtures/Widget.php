@@ -30,15 +30,7 @@ class Widget implements WidgetInterface
     /**
      * @return string
      */
-    function getType()
-    {
-        return $this->type;
-    }
-
-    /**
-     * @return string
-     */
-    function getTitle()
+    function getAdminLabel()
     {
         return $this->title;
     }
@@ -46,7 +38,7 @@ class Widget implements WidgetInterface
     /**
      * @return WidgetTypeInterface
      */
-    function getSource()
+    function getType()
     {
         return $this->source;
     }

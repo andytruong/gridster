@@ -23,7 +23,7 @@ class AjaxWidgetType implements WidgetTypeInterface
         return $this->id;
     }
 
-    public function getType()
+    public function getName()
     {
         return $this->type;
     }

@@ -3,7 +3,7 @@
 namespace GO1\Gridster\Normalizer;
 
 use GO1\Gridster\Block\WidgetInterface;
-use GO1\Gridster\Grid\GridMasterInterface;
+use GO1\Gridster\GridMaster\GridMasterInterface;
 use GO1\Gridster\Source\WidgetTypeInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 use Symfony\Component\Serializer\Normalizer\GetSetMethodNormalizer;

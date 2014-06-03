@@ -8,12 +8,12 @@ class WidgetType implements WidgetTypeInterface
 {
 
     protected $id;
-    protected $type;
+    protected $name;
 
     public function __construct($id, $type)
     {
         $this->id = $id;
-        $this->type = $type;
+        $this->name = $type;
     }
 
     public function getId()
@@ -21,9 +21,9 @@ class WidgetType implements WidgetTypeInterface
         return $this->id;
     }
 
-    public function getType()
+    public function getName()
     {
-        return $this->type;
+        return $this->name;
     }
 
     /** These values are hardcoded for easier maintenance */
