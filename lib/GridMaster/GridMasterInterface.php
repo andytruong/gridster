@@ -79,4 +79,12 @@ interface GridMasterInterface
      * @return array
      */
     public function getOptions();
+
+    /**
+     * Static method to create new grid-master object from json.
+     *
+     * @param string $json
+     * @return GridMasterInterface
+     */
+    public static function importFromJSON(string $json);
 }
