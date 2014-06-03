@@ -1,9 +1,17 @@
 <?php
 
+/**
+ * @file
+ * Contains GO1\Gridster\GridMaster\Helper\RenderInterface
+ */
+
 namespace GO1\Gridster\GridMaster\Helper;
 
 use GO1\Gridster\GridMaster\GridMasterInterface;
 
+/**
+ * Defines common interface for gridster render.
+ */
 interface RenderInterface
 {
 

@@ -1,9 +1,17 @@
 <?php
 
+/**
+ * @file
+ * Contains GO1\Gridster\Widget\WidgetInterface
+ */
+
 namespace GO1\Gridster\Widget;
 
 use GO1\Gridster\Widget\WidgetTypeInterface;
 
+/**
+ * Defines a common interface for gridster widgets.
+ */
 interface WidgetInterface
 {
 
@@ -15,6 +23,8 @@ interface WidgetInterface
     public function getId();
 
     /**
+     * Getter for widget_type property.
+     *
      * @return WidgetTypeInterface
      */
     public function getType();
@@ -34,7 +44,7 @@ interface WidgetInterface
     public function getOptions();
 
     /**
-     * @todo What is "Placeholders"?
+     * What is "Placeholders"? Is this needed?
      *
      * @return array
      */
