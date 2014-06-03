@@ -5,7 +5,9 @@ namespace GO1\Gridster\Block;
 use GO1\Gridster\Configuration\ConfigurationInterface;
 use GO1\Gridster\Source\SourceInterface;
 
-interface BlockInterface{
+interface BlockInterface
+{
+
     /**
      * @return int
      */
@@ -37,5 +39,4 @@ interface BlockInterface{
      * @return array()
      */
     function getPlaceholders();
-
 }

@@ -8,21 +8,26 @@ use GO1\Gridster\Block\BlockInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 use Symfony\Component\Serializer\Serializer;
 
-class Gridster{
+class Gridster
+{
+
     protected $normalizers;
     protected $encoders;
     protected $serializer;
 
-    function __construct($normalizers, $encoders){
-        if(!is_array($normalizers)){
+    function __construct($normalizers, $encoders)
+    {
+        if (!is_array($normalizers)) {
             $this->normalizers = array($normalizers);
-        }else{
+        }
+        else {
             $this->normalizers = $normalizers;
         }
 
-        if(!is_array($encoders)){
+        if (!is_array($encoders)) {
             $this->encoders = array($encoders);
-        }else{
+        }
+        else {
             $this->encoders = $encoders;
         }
     }
@@ -30,6 +35,7 @@ class Gridster{
     function outputGridster(GridInterface $grid, $format = 'json')
     {
         $this->serializer = new Serializer($this->normalizers, $this->encoders);
-        return $this->serializer->serialize($grid,$format);
+        return $this->serializer->serialize($grid, $format);
     }
+
 }
