@@ -13,6 +13,12 @@ use GO1\Gridster\Widget\WidgetInterface;
  */
 interface GridMasterWidgetInterface
 {
+    /**
+     * Getter for id property
+     *
+     * @return string
+     */
+    public function getId();
 
     /**
      * Setter for widget property.

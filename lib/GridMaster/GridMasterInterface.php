@@ -6,8 +6,6 @@
 
 namespace GO1\Gridster\GridMaster;
 
-use GO1\Gridster\GridMaster\Helper\RenderInterface;
-
 /**
  * Defines a commons interface for grid-masters.
  */
@@ -22,6 +20,27 @@ interface GridMasterInterface
     public function getId();
 
     /**
+     * Setter for title property.
+     *
+     * @param string $label
+     */
+    public function setLabel($label);
+
+    /**
+     * Getter for title property.
+     *
+     * @return string
+     */
+    public function getLabel();
+
+    /**
+     * Setter for title property.
+     *
+     * @param string $title
+     */
+    public function setTitle($title);
+
+    /**
      * Getter for title property.
      *
      * @return string
@@ -31,7 +50,7 @@ interface GridMasterInterface
     /**
      * Get all widgets added to grid-master.
      *
-     * @return <GridMasterWidget>
+     * @return GridMasterWidget[]
      */
     public function getWidgets();
 
@@ -41,7 +60,7 @@ interface GridMasterInterface
      * @param string $id
      * @return GridMasterWidgetInterface
      */
-    public function getWidget(string $id);
+    public function getWidget($id);
 
     /**
      * Add a widget interface to grid-master.
@@ -67,28 +86,29 @@ interface GridMasterInterface
      *
      * @param string $gm_widget_id
      */
-    public function removeWidgetById(string $gm_widget_id);
-
-    /**
-     * Setter for render property.
-     *
-     * @param RenderInterface $render
-     */
-    public function setRender(RenderInterface $render);
-
-    /**
-     * Getter for render property.
-     *
-     * @return RenderInterface
-     */
-    public function getRender();
+    public function removeWidgetById($gm_widget_id);
 
     /**
      * Return list of available options: ['widget_selector', 'widget_margins', …]
      *
-     * @return <string>
+     * @return string[]
      */
     public function getAvailableOptions();
+
+    /**
+     * Setter for options property.
+     *
+     * @param array $options
+     */
+    public function setOptions(array $options);
+
+    /**
+     * Setter for single option.
+     *
+     * @param string $key
+     * @param mixed $value
+     */
+    public function setOption($key, $value);
 
     /**
      * Options will specify the options parameter in the json.
@@ -103,5 +123,12 @@ interface GridMasterInterface
      * @param string $json
      * @return GridMasterInterface
      */
-    public static function importFromJSON(string $json);
+    public static function importFromJSON($json);
+
+    /**
+     * Dump grid-master object to json format.
+     *
+     * @return string
+     */
+    public function dumpJSON();
 }
