@@ -1,0 +1,28 @@
+{
+    "id": "uuid — ID of Grid-master"
+    , "label": "string — Admin displaying name"
+    , "title": "string — Displaying title, visible to end user"
+    , "options": {
+        "margins": [10 ,10], "columns": 6, "width": "auto"
+        , "attributes": { "id": "gridmaster-id", "class": "grid-master-class" }
+    }
+    , "context": { "user_id": 1, "anything": { "foo": "bar" } }
+    , "js": ["http://www.example.com/scripts.js"]
+    , "css": ["http://www.example.com/styles.css"]
+    , "plugins": ["http://www.example.com/plugin-name.js"]
+    , "widgets": [
+        {
+            "id": "string — Unique ID of Widget in Gridmaster"
+            , "label": "string — Admin displaying name"
+            , "title": "string — Title of widget in Grid (h2 tag)"
+            , "css": ["http://example.com/style.css"]
+            , "js": ["http://example.com/script.css"]
+            , "options": {
+                "position": { "sizeX": 1, "sizeY": 2, "col": 1, "row": 1 }
+                , "attributes": { "id": "widget-id", "class": "widget-class" }
+            }
+            , "template": "/path/to/template.html"
+            , "content": { "foo": "bar" }
+        }
+    ]
+}
