@@ -13,12 +13,76 @@ use GO1\Gridster\Widget\WidgetInterface;
  */
 interface GridMasterWidgetInterface
 {
+
+    /**
+     * Setter for id property.
+     *
+     * @param string $id
+     */
+    public function setId($id);
+
     /**
      * Getter for id property
      *
      * @return string
      */
     public function getId();
+
+    /**
+     * Setter for label property.
+     *
+     * @param string $label
+     */
+    public function setLabel($label);
+
+    /**
+     * Getter for label property.
+     *
+     * @return string
+     */
+    public function getLabel();
+
+    /**
+     * Setter for title property.
+     *
+     * @param string $title
+     */
+    public function setTitle($title);
+
+    /**
+     * Getter for title property.
+     *
+     * @return string
+     */
+    public function getTitle();
+
+    /**
+     * Setter for css property.
+     *
+     * @param string[] $paths
+     */
+    public function setCss(array $paths);
+
+    /**
+     * Getter for css property.
+     *
+     * @return string[]
+     */
+    public function getCss();
+
+    /**
+     * Setter for js property.
+     *
+     * @param string[] $paths
+     */
+    public function setJs(array $paths);
+
+    /**
+     * Getter for js property.
+     *
+     * @return string[]
+     */
+    public function getJs();
 
     /**
      * Setter for widget property.
@@ -35,58 +99,24 @@ interface GridMasterWidgetInterface
     public function getWidget();
 
     /**
-     * Setter for row property.
+     * Setter for options property.
      *
-     * @param int $row
+     * @param array $options
      */
-    public function setRow($row);
+    public function setOptions(array $options);
 
     /**
-     * Getter for row property.
+     * Setter for single option.
      *
-     * @return int
+     * @param string $key
+     * @param mixed $value
      */
-    public function getRow();
+    public function setOption($key, $value);
 
     /**
-     * Setter for col property.
+     * Getter for options property.
      *
-     * @param int $col
+     * @return array
      */
-    public function setCol($col);
-
-    /**
-     * Getter for col property.
-     *
-     * @return int
-     */
-    public function getCol();
-
-    /**
-     * Setter for sizex property.
-     *
-     * @param int $size_x
-     */
-    public function setSizeX($size_x);
-
-    /**
-     * Getter for sizex property.
-     *
-     * @return int
-     */
-    public function getSizeX();
-
-    /**
-     * Setter for sizey property.
-     *
-     * @param int $size_y
-     */
-    public function setSizeY($size_y);
-
-    /**
-     * Getter for sizey property.
-     *
-     * @return int
-     */
-    public function getSizeY();
+    public function getOptions();
 }

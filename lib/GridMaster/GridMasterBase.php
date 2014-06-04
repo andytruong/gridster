@@ -2,28 +2,29 @@
 
 namespace GO1\Gridster\GridMaster;
 
-class GridMasterBase implements GridMasterInterface
+abstract class GridMasterBase implements GridMasterInterface
 {
+
     /**
      * ID of grid-master.
      *
      * @var string
      */
-    private $id;
+    protected $id;
 
     /**
      * Admin displaying name.
      *
      * @var string
      */
-    private $label;
+    protected $label;
 
     /**
      * Displaying title, visible to end user.
      *
      * @var string
      */
-    private $title;
+    protected $title;
 
     /**
      * Grid-master displaying options, available key/value are:
@@ -33,43 +34,44 @@ class GridMasterBase implements GridMasterInterface
      *  - width: 'auto', '0%' - '100%' or int (pixel)
      *  - attributes: [ id: 'ID for wrapper DOM', 'class': 'classes-for-wrapper-DOM' ]
      *
-     * @var string
+     * @var array
      */
-    private $options;
+    protected $options;
 
     /**
      * Context values for grid-master.
      *
      * @var array
      */
-    private $context;
+    protected $context;
 
     /**
      * List of JS to be attached to grid-master.
      *
      * @var string[]
      */
-    private $js;
+    protected $js;
 
     /**
      * List of CSS to be attached to grid-master.
      *
      * @var string
      */
-    private $css;
+    protected $css;
 
     /**
      * List of widget attached to grid-master.
      *
      * @var GridMasterWidgetInterface[]
      */
-    private $widgets;
+    protected $widgets;
 
     /**
      * @inheritedoc
      * @return int
      */
-    public function getId() {
+    public function getId()
+    {
         return $this->id;
     }
 
@@ -77,13 +79,17 @@ class GridMasterBase implements GridMasterInterface
      * @inheritedoc
      * @param string $label
      */
-    public function setLabel($label) {}
+    public function setLabel($label)
+    {
+
+    }
 
     /**
      * @inheritedoc
      * @return string
      */
-    public function getLabel() {
+    public function getLabel()
+    {
         return $this->label;
     }
 
@@ -97,7 +103,8 @@ class GridMasterBase implements GridMasterInterface
      * @inheritedoc
      * @return string
      */
-    public function getTitle() {
+    public function getTitle()
+    {
         return $this->title;
     }
 
@@ -105,7 +112,8 @@ class GridMasterBase implements GridMasterInterface
      * @inheritedoc
      * @return GridMasterWidget[]
      */
-    public function getWidgets() {
+    public function getWidgets()
+    {
         return $this->widgets;
     }
 
@@ -114,7 +122,8 @@ class GridMasterBase implements GridMasterInterface
      * @param string $id
      * @return GridMasterWidgetInterface
      */
-    public function getWidget($id) {
+    public function getWidget($id)
+    {
         return isset($this->widgets[$id]) ? $this->widgets[$id] : null;
     }
 
@@ -122,13 +131,16 @@ class GridMasterBase implements GridMasterInterface
      * @inheritedoc
      * @param GridMasterWidgetInterface $gm_widget
      */
-    public function addWidget(GridMasterWidgetInterface $gm_widget) {
+    public function addWidget(GridMasterWidgetInterface $gm_widget)
+    {
+
     }
 
     /**
      * Remove all widgets.
      */
-    public function removeAllWidgets() {
+    public function removeAllWidgets()
+    {
         $this->widgets = array();
     }
 
@@ -136,7 +148,8 @@ class GridMasterBase implements GridMasterInterface
      * @inheritedoc
      * @param GridMasterWidgetInterface $gm_widget
      */
-    public function removeWidget(GridMasterWidgetInterface $gm_widget) {
+    public function removeWidget(GridMasterWidgetInterface $gm_widget)
+    {
         return $this->removeWidgetById($gm_widget->getId());
     }
 
@@ -144,7 +157,8 @@ class GridMasterBase implements GridMasterInterface
      * @inheritedoc
      * @param string $gm_widget_id
      */
-    public function removeWidgetById($gm_widget_id) {
+    public function removeWidgetById($gm_widget_id)
+    {
         if (!isset($this->widgets[$gm_widget_id])) {
             return false;
         }
@@ -157,39 +171,55 @@ class GridMasterBase implements GridMasterInterface
      * @inheritedoc
      * @return string[]
      */
-    public function getAvailableOptions() {}
+    public function getAvailableOptions()
+    {
+
+    }
 
     /**
      * @inheritedoc
      * @param array $options
      */
-    public function setOptions(array $options) {}
+    public function setOptions(array $options)
+    {
+        $this->options = $options;
+    }
 
     /**
      * @inheritedoc
      * @param string $key
      * @param mixed $value
      */
-    public function setOption($key, $value) {}
+    public function setOption($key, $value)
+    {
+        $this->options[$key] = $value;
+    }
 
     /**
      * @inheritedoc
      * @return array
      */
-    public function getOptions() {}
+    public function getOptions()
+    {
+        return $this->options;
+    }
 
     /**
      * @inheritedoc
      * @param string $json
      * @return GridMasterInterface
      */
-    public static function importFromJSON($json) {}
+    public static function importFromJSON($json)
+    {
+
+    }
 
     /**
      * @inheritedoc
      * @return string
      */
-    public function dumpJSON() {
+    public function dumpJSON()
+    {
         return '{ "status": "coming…" }';
     }
 

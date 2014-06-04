@@ -8,6 +8,9 @@ namespace GO1\Gridster\GridMaster;
 
 /**
  * Defines a commons interface for grid-masters.
+ *
+ * @todo Missing methods:
+ *  - Getter/Setter for css/js/context.
  */
 interface GridMasterInterface
 {
