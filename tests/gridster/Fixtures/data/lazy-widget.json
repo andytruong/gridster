@@ -9,7 +9,6 @@
     , "context": { "user_id": 1, "anything": { "foo": "bar" } }
     , "js": ["http://www.example.com/scripts.js"]
     , "css": ["http://www.example.com/styles.css"]
-    , "plugins": ["http://www.example.com/plugin-name.js"]
     , "widgets": [
         {
             "id": "string — Unique ID of Widget in Gridmaster"

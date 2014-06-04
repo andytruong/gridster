@@ -31,7 +31,7 @@ class GridMaster implements GridMasterInterface
     /**
      * @return string
      */
-    function getTitle()
+    function getLabel()
     {
         return $this->title;
     }
