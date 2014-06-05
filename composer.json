@@ -6,7 +6,7 @@
   },
   "autoload": {
     "psr-4": {
-      "GO1\\Gridster\\": "lib/"
+      "GO1\\Gridster\\": "src/"
     }
   }
 }
