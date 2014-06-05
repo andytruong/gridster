@@ -2,11 +2,17 @@
 
 namespace GO1\Gridster\GridMaster;
 
-use GO1\Gridster\Widget\WidgetInterface,
-    GO1\Gridster\GridsterManagerInterface;
+use GO1\Gridster\Widget\WidgetInterface;
 
 class GridMasterWidgetBase implements GridMasterWidgetInterface
 {
+
+    /**
+     * Grid-master object.
+     *
+     * @var GridMasterInterface
+     */
+    protected $grid_master;
 
     /**
      * Unique ID of widget in grid-master.
@@ -30,11 +36,11 @@ class GridMasterWidgetBase implements GridMasterWidgetInterface
     protected $title = '';
 
     /**
-     * Wiget object
+     * Wiget type
      *
-     * @var WidgetInterface
+     * @var string
      */
-    protected $widget;
+    protected $widget_type;
 
     /**
      * Options for a widget inside a grid-master. Available options:
@@ -59,6 +65,16 @@ class GridMasterWidgetBase implements GridMasterWidgetInterface
      * @var string[]
      */
     protected $js = array();
+
+    /**
+     * Setter for grid_master property.
+     *
+     * @param \GO1\Gridster\GridMaster\GridMasterInterface $grid_master
+     */
+    public function setGridMaster(GridMasterInterface $grid_master)
+    {
+        $this->grid_master = $grid_master;
+    }
 
     /**
      * @inheritedoc
@@ -116,25 +132,30 @@ class GridMasterWidgetBase implements GridMasterWidgetInterface
 
     /**
      * @inheritedoc
-     * @param WidgetInterface $widget
+     * @param string $widget
      */
-    public function setWidget(WidgetInterface $widget)
+    public function setWidgetType($widget)
     {
-        $this->widget = $widget;
+        $this->widget_type = $widget;
     }
 
     /**
      * @inheritedoc
-     * @return WidgetInterface
+     * @return \GO1\Gridster\Widget\WidgetTypeInterface
      */
-    public function getWidget()
+    public function getWidgetType()
     {
-        if (is_null($this->widget)) {
-            // $widget_type = new \GO1\Gridster\Widget\WidgetTypeBase();
-            // $this->widget =
+        if (is_null($this->widget_type)) {
+            throw new \RuntimeException('Missing property: widget_type.');
         }
 
-        return $this->widget;
+        if (is_null($this->grid_master)) {
+            throw new \RuntimeException('Missing property: grid_master');
+        }
+
+        return $this->grid_master
+                ->getGridsterManager()
+                ->getWidgetType($this->widget_type);
     }
 
     /**
@@ -199,6 +220,12 @@ class GridMasterWidgetBase implements GridMasterWidgetInterface
     public function getJs()
     {
         return $this->js;
+    }
+
+    public function getContent()
+    {
+        $options = $this->getOptions();
+        return $this->getWidgetType()->render($options);
     }
 
 }

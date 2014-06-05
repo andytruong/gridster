@@ -24,8 +24,13 @@ class GridMasterSerializeTest extends \PHPUnit_Framework_TestCase
                 , 'class' => 'grid-master-class'
             )
         ));
-        $gm->addWidget($gm_widget = Factory::getGridMasterWidget());
+
+        $gm_widget = Factory::getGridMasterWidget();
+        $gm_widget->setGridMaster($gm);
+
+        $gm->addWidget($gm_widget);
         $this->assertJson($json = $gm->dumpJSON());
+
         return $json;
     }
 

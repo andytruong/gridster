@@ -41,6 +41,13 @@ interface WidgetTypeInterface
     public function getWidgets();
 
     /**
+     * Return list of available options.
+     *
+     * @return string[]
+     */
+    public function getAvailableOptions();
+
+    /**
      * Get settings form for widget
      */
     # public function getSettingsForm();

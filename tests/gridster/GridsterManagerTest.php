@@ -15,9 +15,7 @@ class GridsterManagerTest extends \PHPUnit_Framework_TestCase
     public function testSetGet()
     {
         $m = Factory::getGridsterManager();
-        $this->assertEmpty($m->getWidgetTypes());
 
-        $m->registerDefaultWidgetTypes();
         $widget_types = $m->getWidgetTypes();
         $this->assertArrayHasKey('base', $widget_types);
 
@@ -44,7 +42,6 @@ class GridsterManagerTest extends \PHPUnit_Framework_TestCase
     public function testRegisterFrozen()
     {
         $m = Factory::getGridsterManager();
-        $m->registerDefaultWidgetTypes();
         $m->registerWidgetType('base', 'GO1\Gridster\Widget\WidgetTypeBase');
     }
 

@@ -48,4 +48,11 @@ interface WidgetInterface
      * @return array
      */
     public function getPlaceholders();
+
+    /**
+     * Render widget.
+     *
+     * @param array $options
+     */
+    public function render(array $options);
 }

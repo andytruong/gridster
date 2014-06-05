@@ -29,7 +29,7 @@ interface GridMasterInterface
      *
      * @return GridsterManagerInterface
      */
-    public function getGridsterManage();
+    public function getGridsterManager();
 
     /**
      * Setter for id property.

@@ -46,7 +46,24 @@ class WidgetTypeBase implements WidgetTypeInterface
      */
     public function getWidgets()
     {
-        
+    }
+
+    /**
+     * Get available options.
+     *
+     * @return array
+     */
+    public function getAvailableOptions()
+    {
+        return array('text');
+    }
+
+    public function render(array $options) {
+        if (isset($options['text'])) {
+            return $options['text'];
+        }
+
+        throw new \InvalidArgumentException('Missing "text" argument.');
     }
 
 }

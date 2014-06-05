@@ -14,6 +14,8 @@ use GO1\Gridster\Widget\WidgetInterface;
 interface GridMasterWidgetInterface
 {
 
+    public function setGridMaster(GridMasterInterface $grid_master);
+
     /**
      * Setter for id property.
      *
@@ -87,16 +89,16 @@ interface GridMasterWidgetInterface
     /**
      * Setter for widget property.
      *
-     * @param WidgetInterface $widget
+     * @param string $widget
      */
-    public function setWidget(WidgetInterface $widget);
+    public function setWidgetType($widget);
 
     /**
      * Getter for widget property.
      *
      * @return WidgetInterface
      */
-    public function getWidget();
+    public function getWidgetType();
 
     /**
      * Setter for options property.

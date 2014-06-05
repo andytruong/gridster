@@ -94,7 +94,7 @@ abstract class GridMasterBase implements GridMasterInterface
      * @inheritedoc
      * @return GridsterManagerInterface
      */
-    public function getGridsterManage()
+    public function getGridsterManager()
     {
         return $this->gridster_manager;
     }
@@ -250,6 +250,7 @@ abstract class GridMasterBase implements GridMasterInterface
     }
 
     /**
+     * Get serializer.
      *
      * @return Serializer
      */
@@ -257,7 +258,7 @@ abstract class GridMasterBase implements GridMasterInterface
     {
         if (is_null($this->serializer)) {
             $normalizer = new GetSetMethodNormalizer();
-            $normalizer->setIgnoredAttributes(array('serializer', 'availableOptions', 'widget'));
+            $normalizer->setIgnoredAttributes(array('serializer', 'availableOptions', 'widgetType', 'gridsterManager'));
             $encoders = array(new JsonEncoder());
             $this->serializer = new Serializer(array($normalizer), $encoders);
         }
