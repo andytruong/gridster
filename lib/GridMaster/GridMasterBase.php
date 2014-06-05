@@ -247,7 +247,8 @@ abstract class GridMasterBase implements GridMasterInterface
      */
     public static function importFromJSON($json)
     {
-
+        $me = new static;
+        return $me->getSerializer()->deserialize($json, get_class($me), 'json');
     }
 
     /**

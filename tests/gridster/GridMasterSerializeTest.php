@@ -41,11 +41,12 @@ class GridMasterSerializeTest extends \PHPUnit_Framework_TestCase
         ]);
         $gm->addWidget($gm_widget = $this->getGridMasterWidget());
         $this->assertJson($json = $gm->dumpJSON());
+        return $json;
     }
 
-    public function ___testUnserialize()
+    public function testUnserialize()
     {
-        $gm = Fixtures\GridMaster::importFromJSON($json);
+        $gm = Fixtures\GridMaster::importFromJSON($json = $this->testSerialize());
         $this->assertInstanceOf('GO1\Gridster\GridMaster\GridMasterInterface', $gm);
     }
 
