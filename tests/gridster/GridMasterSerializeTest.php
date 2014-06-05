@@ -30,15 +30,15 @@ class GridMasterSerializeTest extends \PHPUnit_Framework_TestCase
         $gm->setId(123);
         $gm->setLabel('Demo Gridmaster');
         $gm->setTitle('Hello Gridmaster');
-        $gm->setOptions([
-            'margin' => [10, 10]
+        $gm->setOptions(array(
+            'margin' => array(10, 10)
             , 'columns' => 6
             , 'width' => 'auto'
-            , 'attributes' => [
+            , 'attributes' => array(
                 'id' => 'grid-master-id'
                 , 'class' => 'grid-master-class'
-            ]
-        ]);
+            )
+        ));
         $gm->addWidget($gm_widget = $this->getGridMasterWidget());
         $this->assertJson($json = $gm->dumpJSON());
         return $json;
