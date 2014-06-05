@@ -5,7 +5,8 @@ namespace GO1\Gridster\GridMaster;
 use Symfony\Component\Serializer\Serializer,
     Symfony\Component\Serializer\Normalizer\GetSetMethodNormalizer,
     Symfony\Component\Serializer\Encoder\JsonEncoder,
-    GO1\Gridster\GridsterManagerInterface;
+    GO1\Gridster\GridsterManagerInterface,
+    GO1\Gridster\Widget\WidgetInterface;
 
 abstract class GridMasterBase implements GridMasterInterface
 {
@@ -72,7 +73,7 @@ abstract class GridMasterBase implements GridMasterInterface
     /**
      * List of widget attached to grid-master.
      *
-     * @var GridMasterWidgetInterface[]
+     * @var WidgetInterface[]
      */
     protected $widgets;
 
@@ -165,7 +166,7 @@ abstract class GridMasterBase implements GridMasterInterface
     /**
      * @inheritedoc
      * @param string $id
-     * @return GridMasterWidgetInterface
+     * @return WidgetInterface
      */
     public function getWidget($id)
     {
@@ -174,9 +175,9 @@ abstract class GridMasterBase implements GridMasterInterface
 
     /**
      * @inheritedoc
-     * @param GridMasterWidgetInterface $gm_widget
+     * @param WidgetInterface $gm_widget
      */
-    public function addWidget(GridMasterWidgetInterface $gm_widget)
+    public function addWidget(WidgetInterface $gm_widget)
     {
         $this->widgets[$gm_widget->getId()] = $gm_widget;
     }
@@ -191,9 +192,9 @@ abstract class GridMasterBase implements GridMasterInterface
 
     /**
      * @inheritedoc
-     * @param GridMasterWidgetInterface $gm_widget
+     * @param WidgetInterface $gm_widget
      */
-    public function removeWidget(GridMasterWidgetInterface $gm_widget)
+    public function removeWidget(WidgetInterface $gm_widget)
     {
         return $this->removeWidgetById($gm_widget->getId());
     }

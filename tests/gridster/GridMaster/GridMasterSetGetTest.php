@@ -30,9 +30,9 @@ class GridMasterSetGetTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('Test label', $gm->getLabel());
 
         // Widgets
-        $widget_01 = Factory::getGridMasterWidget('getSetWidget01');
-        $widget_02 = Factory::getGridMasterWidget('getSetWidget02');
-        $widget_03 = Factory::getGridMasterWidget('getSetWidget03');
+        $widget_01 = Factory::getWidget('getSetWidget01');
+        $widget_02 = Factory::getWidget('getSetWidget02');
+        $widget_03 = Factory::getWidget('getSetWidget03');
         $gm->addWidget($widget_01);
         $gm->addWidget($widget_02);
         $gm->addWidget($widget_03);
@@ -57,7 +57,7 @@ class GridMasterSetGetTest extends \PHPUnit_Framework_TestCase
 
     public function testGridMasterWidget() {
         $gm = Factory::getGridMaster();
-        $gmw = Factory::getGridMasterWidget();
+        $gmw = Factory::getWidget();
         $gmw->setGridMaster($gm);
 
         $widget_type = $gmw->getWidgetType();

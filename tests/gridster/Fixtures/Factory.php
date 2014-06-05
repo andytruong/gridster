@@ -24,11 +24,11 @@ class Factory
     }
 
     /**
-     * @return \GO1\Gridster\Tests\Fixtures\GridMasterWidget
+     * @return \GO1\Gridster\Tests\Fixtures\Widget
      */
-    public static function getGridMasterWidget($id = 'widget-1', $type = 'base')
+    public static function getWidget($id = 'widget-1', $type = 'base')
     {
-        $gm_widget = new \GO1\Gridster\GridMaster\GridMasterWidgetBase();
+        $gm_widget = new \GO1\Gridster\Widget\WidgetBase();
         $gm_widget->setId($id);
         $gm_widget->setWidgetType('base');
         $gm_widget->setTitle('Demo widget #1');

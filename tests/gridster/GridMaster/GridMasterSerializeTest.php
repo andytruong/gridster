@@ -2,7 +2,7 @@
 
 namespace GO1\Gridster\Tests\GridMaster;
 
-use GO1\Gridster\GridMaster\GridMasterWidgetBase as GridMasterWidget;
+use GO1\Gridster\GridMaster\WidgetBase as GridMasterWidget;
 use GO1\Gridster\Tests\Fixtures\GridMaster;
 use GO1\Gridster\Tests\Fixtures\Factory;
 
@@ -25,7 +25,7 @@ class GridMasterSerializeTest extends \PHPUnit_Framework_TestCase
             )
         ));
 
-        $gm_widget = Factory::getGridMasterWidget();
+        $gm_widget = Factory::getWidget();
         $gm_widget->setGridMaster($gm);
 
         $gm->addWidget($gm_widget);

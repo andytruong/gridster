@@ -6,7 +6,8 @@
 
 namespace GO1\Gridster\GridMaster;
 
-use GO1\Gridster\GridsterManagerInterface;
+use GO1\Gridster\GridsterManagerInterface,
+    GO1\Gridster\Widget\WidgetInterface;
 
 /**
  * Defines a commons interface for grid-masters.
@@ -84,16 +85,16 @@ interface GridMasterInterface
      * Get a widget added to grid-master.
      *
      * @param string $id
-     * @return GridMasterWidgetInterface
+     * @return WidgetInterface
      */
     public function getWidget($id);
 
     /**
      * Add a widget interface to grid-master.
      *
-     * @param GridMasterWidgetInterface $gm_widget
+     * @param WidgetInterface $gm_widget
      */
-    public function addWidget(GridMasterWidgetInterface $gm_widget);
+    public function addWidget(WidgetInterface $gm_widget);
 
     /**
      * Remove all widgets.
@@ -103,9 +104,9 @@ interface GridMasterInterface
     /**
      * Remove a widget from grid-master
      *
-     * @param GridMasterWidgetInterface $gm_widget
+     * @param WidgetInterface $gm_widget
      */
-    public function removeWidget(GridMasterWidgetInterface $gm_widget);
+    public function removeWidget(WidgetInterface $gm_widget);
 
     /**
      * Remove a widget from grid-master by ID.
