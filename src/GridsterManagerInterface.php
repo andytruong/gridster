@@ -26,6 +26,8 @@ interface GridsterManagerInterface {
     public function getWidgetTypes();
 
     /**
+     * Get widget type object.
+     * 
      * @return Widget\WidgetTypeInterface
      */
     public function getWidgetType($name);

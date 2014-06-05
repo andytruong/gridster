@@ -32,16 +32,35 @@ class GridsterManager implements GridsterManagerInterface
      */
     private $widget_types = array();
 
-    public function registerDefaultWidgetTypes()
+    public function __construct()
+    {
+        $this->registerDefaultWidgetTypes();
+    }
+
+    /**
+     * Provide default widget-types.
+     */
+    protected function registerDefaultWidgetTypes()
     {
         $this->registerWidgetType('base', 'GO1\Gridster\Widget\WidgetTypeBase');
     }
 
+    /**
+     * Get registered widget types.
+     *
+     * @return array
+     */
     public function getWidgetTypes()
     {
         return $this->widget_types;
     }
 
+    /**
+     * @ineritedoc
+     * @param string $name
+     * @return Widget\WidgetTypeInterface
+     * @throws \InvalidArgumentException
+     */
     public function getWidgetType($name)
     {
         if (!isset($this->widget_types[$name])) {
@@ -51,6 +70,14 @@ class GridsterManager implements GridsterManagerInterface
         return new $this->widget_types[$name];
     }
 
+    /**
+     * Register a widget type with manager.
+     *
+     * @param string $name
+     * @param string $class_name
+     * @throws \RuntimeException
+     * @throws \InvalidArgumentException
+     */
     public function registerWidgetType($name, $class_name)
     {
         if (isset($this->widget_types[$name])) {
@@ -70,6 +97,10 @@ class GridsterManager implements GridsterManagerInterface
         $this->widget_types[$name] = $class_name;
     }
 
+    /**
+     * @inheritedoc
+     * @param string $name
+     */
     public function unregisterWidgetType($name)
     {
         unset($this->widget_types[$name]);

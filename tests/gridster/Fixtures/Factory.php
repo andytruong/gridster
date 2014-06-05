@@ -10,9 +10,7 @@ class Factory
      */
     public static function getGridsterManager()
     {
-        $manager = new \GO1\Gridster\GridsterManager();
-        $manager->registerDefaultWidgetTypes();
-        return $manager;
+        return new \GO1\Gridster\GridsterManager();
     }
 
     /**
