@@ -56,8 +56,17 @@ class GridMasterSetGetTest extends \PHPUnit_Framework_TestCase
     }
 
     public function testGridMasterWidget() {
+        $gm = Factory::getGridMaster();
         $gmw = Factory::getGridMasterWidget();
-        $this->assertNull($gmw->getWidgetType());
+        $gmw->setGridMaster($gm);
+
+        $widget_type = $gmw->getWidgetType();
+        $this->assertInstanceOf('GO1\Gridster\Widget\WidgetTypeBase', $widget_type);
+
+        $this->assertEquals('base', $widget_type->getName());
+        $this->assertEquals('Base Widget Type', $widget_type->getLabel());
+        $this->assertEquals('Most simple widget type.', $widget_type->getDescription());
+        $this->assertEquals(array('text'), $widget_type->getAvailableOptions());
     }
 
 }
