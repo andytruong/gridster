@@ -53,4 +53,9 @@ class GridMasterSetGetTest extends \PHPUnit_Framework_TestCase
         $this->assertCount(0, $gm->getWidgets());
     }
 
+    public function testGridMasterWidget() {
+        $gmw = Fixtures\Factory::getGridMasterWidget();
+        $this->assertNull($gmw->getWidget());
+    }
+
 }
