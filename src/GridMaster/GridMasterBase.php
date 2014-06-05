@@ -99,7 +99,7 @@ abstract class GridMasterBase implements GridMasterInterface
      */
     public function setLabel($label)
     {
-
+        $this->label = $label;
     }
 
     /**
@@ -194,7 +194,7 @@ abstract class GridMasterBase implements GridMasterInterface
      */
     public function getAvailableOptions()
     {
-        return array();
+        return array('any', 'thing');
     }
 
     /**
@@ -233,7 +233,7 @@ abstract class GridMasterBase implements GridMasterInterface
     {
         if (is_null($this->serializer)) {
             $normalizer = new GetSetMethodNormalizer();
-            $normalizer->setIgnoredAttributes(array('serializer'));
+            $normalizer->setIgnoredAttributes(array('serializer', 'availableOptions', 'widget'));
             $encoders = array(new JsonEncoder());
             $this->serializer = new Serializer(array($normalizer), $encoders);
         }

@@ -7,26 +7,9 @@ use GO1\Gridster\GridMaster\GridMasterWidgetBase as GridMasterWidget;
 class GridMasterSerializeTest extends \PHPUnit_Framework_TestCase
 {
 
-    /**
-     * @return \GO1\Gridster\GridMaster\GridMasterInterface
-     */
-    private function getGridMaster()
-    {
-        return new Fixtures\GridMaster();
-    }
-
-    private function getGridMasterWidget()
-    {
-        $gm_widget = new GridMasterWidget();
-        $gm_widget->setId('widget-1');
-        $gm_widget->setTitle('Demo widget #1');
-        $gm_widget->setLabel('Just a demo widget');
-        return $gm_widget;
-    }
-
     public function testSerialize()
     {
-        $gm = $this->getGridMaster();
+        $gm = Fixtures\Factory::getGridMaster();
         $gm->setId(123);
         $gm->setLabel('Demo Gridmaster');
         $gm->setTitle('Hello Gridmaster');
@@ -39,7 +22,7 @@ class GridMasterSerializeTest extends \PHPUnit_Framework_TestCase
                 , 'class' => 'grid-master-class'
             )
         ));
-        $gm->addWidget($gm_widget = $this->getGridMasterWidget());
+        $gm->addWidget($gm_widget = Fixtures\Factory::getGridMasterWidget());
         $this->assertJson($json = $gm->dumpJSON());
         return $json;
     }
