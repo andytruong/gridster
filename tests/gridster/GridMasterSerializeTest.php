@@ -40,15 +40,7 @@ class GridMasterSerializeTest extends \PHPUnit_Framework_TestCase
             ]
         ]);
         $gm->addWidget($gm_widget = $this->getGridMasterWidget());
-
-        $json = $gm->dumpJSON();
-
-        $this->assertJson($json);
-
-        print_r([
-            $json,
-            $gm->getWidgets()
-        ]);
+        $this->assertJson($json = $gm->dumpJSON());
     }
 
     public function ___testUnserialize()
