@@ -6,6 +6,8 @@
 
 namespace GO1\Gridster\GridMaster;
 
+use GO1\Gridster\GridsterManagerInterface;
+
 /**
  * Defines a commons interface for grid-masters.
  *
@@ -16,8 +18,22 @@ interface GridMasterInterface
 {
 
     /**
+     * Setter for gridster_manager property.
+     *
+     * @param \GO1\Gridster\GridsterManagerInterface $gridster_manager
+     */
+    public function setGridsterManager(GridsterManagerInterface $gridster_manager);
+
+    /**
+     * Getter for gridster_manager property.
+     *
+     * @return GridsterManagerInterface
+     */
+    public function getGridsterManage();
+
+    /**
      * Setter for id property.
-     * 
+     *
      * @param string $id
      */
     public function setId($id);

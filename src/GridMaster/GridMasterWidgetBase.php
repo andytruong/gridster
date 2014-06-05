@@ -2,7 +2,8 @@
 
 namespace GO1\Gridster\GridMaster;
 
-use GO1\Gridster\Widget\WidgetInterface;
+use GO1\Gridster\Widget\WidgetInterface,
+    GO1\Gridster\GridsterManagerInterface;
 
 class GridMasterWidgetBase implements GridMasterWidgetInterface
 {
@@ -128,7 +129,12 @@ class GridMasterWidgetBase implements GridMasterWidgetInterface
      */
     public function getWidget()
     {
-        return !is_null($this->widget) ? $this->widget : null;
+        if (is_null($this->widget)) {
+            // $widget_type = new \GO1\Gridster\Widget\WidgetTypeBase();
+            // $this->widget =
+        }
+
+        return $this->widget;
     }
 
     /**

@@ -1,15 +1,17 @@
 <?php
 
-namespace GO1\Gridster\Tests;
+namespace GO1\Gridster\Tests\GridMaster;
 
 use GO1\Gridster\GridMaster\GridMasterWidgetBase as GridMasterWidget;
+use GO1\Gridster\Tests\Fixtures\GridMaster;
+use GO1\Gridster\Tests\Fixtures\Factory;
 
 class GridMasterSerializeTest extends \PHPUnit_Framework_TestCase
 {
 
     public function testSerialize()
     {
-        $gm = Fixtures\Factory::getGridMaster();
+        $gm = Factory::getGridMaster();
         $gm->setId(123);
         $gm->setLabel('Demo Gridmaster');
         $gm->setTitle('Hello Gridmaster');
@@ -22,14 +24,14 @@ class GridMasterSerializeTest extends \PHPUnit_Framework_TestCase
                 , 'class' => 'grid-master-class'
             )
         ));
-        $gm->addWidget($gm_widget = Fixtures\Factory::getGridMasterWidget());
+        $gm->addWidget($gm_widget = Factory::getGridMasterWidget());
         $this->assertJson($json = $gm->dumpJSON());
         return $json;
     }
 
     public function testUnserialize()
     {
-        $gm = Fixtures\GridMaster::importFromJSON($json = $this->testSerialize());
+        $gm = GridMaster::importFromJSON($json = $this->testSerialize());
         $this->assertInstanceOf('GO1\Gridster\GridMaster\GridMasterInterface', $gm);
     }
 

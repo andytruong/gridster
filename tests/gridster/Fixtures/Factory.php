@@ -6,11 +6,21 @@ class Factory
 {
 
     /**
+     * @return \GO1\Gridster\GridsterManager
+     */
+    public static function getGridsterManager()
+    {
+        return new \GO1\Gridster\GridsterManager();
+    }
+
+    /**
      * @return \GO1\Gridster\GridMaster\GridMasterInterface
      */
     public static function getGridMaster()
     {
-        return new GridMaster();
+        $gm = new GridMaster();
+        $gm->setGridsterManager(static::getGridsterManager());
+        return $gm;
     }
 
     /**

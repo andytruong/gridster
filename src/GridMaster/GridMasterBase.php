@@ -4,10 +4,16 @@ namespace GO1\Gridster\GridMaster;
 
 use Symfony\Component\Serializer\Serializer,
     Symfony\Component\Serializer\Normalizer\GetSetMethodNormalizer,
-    Symfony\Component\Serializer\Encoder\JsonEncoder;
+    Symfony\Component\Serializer\Encoder\JsonEncoder,
+    GO1\Gridster\GridsterManagerInterface;
 
 abstract class GridMasterBase implements GridMasterInterface
 {
+
+    /**
+     * @var GridsterManagerInterface
+     */
+    protected $gridster_manager;
 
     /**
      * ID of grid-master.
@@ -74,6 +80,24 @@ abstract class GridMasterBase implements GridMasterInterface
      * @var Serializer
      */
     protected $serializer;
+
+    /**
+     * @inheritedoc
+     * @param \GO1\Gridster\GridsterManagerInterface $gridster_manager
+     */
+    public function setGridsterManager(GridsterManagerInterface $gridster_manager)
+    {
+        $this->gridster_manager = $gridster_manager;
+    }
+
+    /**
+     * @inheritedoc
+     * @return GridsterManagerInterface
+     */
+    public function getGridsterManage()
+    {
+        return $this->gridster_manager;
+    }
 
     /**
      *

@@ -35,6 +35,8 @@ interface WidgetTypeInterface
 
     /**
      * Get all widgets.
+     *
+     * @return WidgetTypeInterface[]
      */
     public function getWidgets();
 

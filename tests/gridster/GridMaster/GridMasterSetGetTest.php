@@ -1,13 +1,15 @@
 <?php
 
-namespace GO1\Gridster\Tests;
+namespace GO1\Gridster\Tests\GridMaster;
+
+use GO1\Gridster\Tests\Fixtures\Factory;
 
 class GridMasterSetGetTest extends \PHPUnit_Framework_TestCase
 {
 
     public function testGridMasterSetGet()
     {
-        $gm = Fixtures\Factory::getGridMaster();
+        $gm = Factory::getGridMaster();
 
         $this->assertInstanceOf('GO1\Gridster\GridMaster\GridMasterInterface', $gm);
 
@@ -28,9 +30,9 @@ class GridMasterSetGetTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('Test label', $gm->getLabel());
 
         // Widgets
-        $widget_01 = Fixtures\Factory::getGridMasterWidget('getSetWidget01');
-        $widget_02 = Fixtures\Factory::getGridMasterWidget('getSetWidget02');
-        $widget_03 = Fixtures\Factory::getGridMasterWidget('getSetWidget03');
+        $widget_01 = Factory::getGridMasterWidget('getSetWidget01');
+        $widget_02 = Factory::getGridMasterWidget('getSetWidget02');
+        $widget_03 = Factory::getGridMasterWidget('getSetWidget03');
         $gm->addWidget($widget_01);
         $gm->addWidget($widget_02);
         $gm->addWidget($widget_03);
@@ -54,7 +56,7 @@ class GridMasterSetGetTest extends \PHPUnit_Framework_TestCase
     }
 
     public function testGridMasterWidget() {
-        $gmw = Fixtures\Factory::getGridMasterWidget();
+        $gmw = Factory::getGridMasterWidget();
         $this->assertNull($gmw->getWidget());
     }
 
