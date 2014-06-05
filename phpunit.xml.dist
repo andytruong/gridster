@@ -12,8 +12,12 @@
          bootstrap="tests/bootstrap.php">
     <testsuites>
         <testsuite name="Gridster Test Suite">
-            <directory>./tests/gridster/*</directory>
-            <directory>./tests/gridster/*/*</directory>
+            <directory>./tests/gridster</directory>
         </testsuite>
     </testsuites>
+    <filter>
+        <whitelist processUncoveredFilesFromWhitelist="true">
+            <directory suffix=".php">./src</directory>
+        </whitelist>
+    </filter>
 </phpunit>

@@ -60,7 +60,7 @@ class Gridster
      * @param string $format
      * @return mixed
      */
-    function outputGridster(GridMasterInterface $grid, $format = 'json')
+    function dump(GridMasterInterface $grid, $format = 'json')
     {
         $this->serializer = new Serializer($this->normalizers, $this->encoders);
         return $this->serializer->serialize($grid, $format);

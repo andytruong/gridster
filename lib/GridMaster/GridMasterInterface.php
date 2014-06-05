@@ -16,6 +16,13 @@ interface GridMasterInterface
 {
 
     /**
+     * Setter for id property.
+     * 
+     * @param string $id
+     */
+    public function setId($id);
+
+    /**
      * Getter for id property.
      *
      * @return int

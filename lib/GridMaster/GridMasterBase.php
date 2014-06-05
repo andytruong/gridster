@@ -2,6 +2,10 @@
 
 namespace GO1\Gridster\GridMaster;
 
+use Symfony\Component\Serializer\Serializer,
+    Symfony\Component\Serializer\Normalizer\GetSetMethodNormalizer,
+    Symfony\Component\Serializer\Encoder\JsonEncoder;
+
 abstract class GridMasterBase implements GridMasterInterface
 {
 
@@ -67,6 +71,20 @@ abstract class GridMasterBase implements GridMasterInterface
     protected $widgets;
 
     /**
+     * @var Serializer
+     */
+    protected $serializer;
+
+    /**
+     *
+     * @param string $id
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+
+    /**
      * @inheritedoc
      * @return int
      */
@@ -97,7 +115,10 @@ abstract class GridMasterBase implements GridMasterInterface
      * @inheritedoc
      * @param string $title
      */
-    public function setTitle($title);
+    public function setTitle($title)
+    {
+        $this->title = $title;
+    }
 
     /**
      * @inheritedoc
@@ -133,7 +154,7 @@ abstract class GridMasterBase implements GridMasterInterface
      */
     public function addWidget(GridMasterWidgetInterface $gm_widget)
     {
-
+        $this->widgets[$gm_widget->getId()] = $gm_widget;
     }
 
     /**
@@ -173,7 +194,7 @@ abstract class GridMasterBase implements GridMasterInterface
      */
     public function getAvailableOptions()
     {
-
+        return array();
     }
 
     /**
@@ -205,6 +226,21 @@ abstract class GridMasterBase implements GridMasterInterface
     }
 
     /**
+     *
+     * @return Serializer
+     */
+    public function getSerializer()
+    {
+        if (is_null($this->serializer)) {
+            $normalizer = new GetSetMethodNormalizer();
+            $normalizer->setIgnoredAttributes(array('serializer'));
+            $encoders = array(new JsonEncoder());
+            $this->serializer = new Serializer(array($normalizer), $encoders);
+        }
+        return $this->serializer;
+    }
+
+    /**
      * @inheritedoc
      * @param string $json
      * @return GridMasterInterface
@@ -220,7 +256,7 @@ abstract class GridMasterBase implements GridMasterInterface
      */
     public function dumpJSON()
     {
-        return '{ "status": "coming…" }';
+        return $this->getSerializer()->serialize($this, 'json');
     }
 
 }
