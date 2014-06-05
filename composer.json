@@ -1,6 +1,13 @@
 {
   "name": "go1/gridster",
   "type": "library",
+  "authors": [
+      {
+        "name": "Andy Truong",
+        "email": "thehongtt@gmail.com",
+        "role": "Lead Developer"
+      }
+  ],
   "require": {
     "symfony/serializer": ">=2.0"
   },
